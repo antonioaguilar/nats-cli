@@ -1,0 +1,34 @@
+{
+  "name": "nats-cmd",
+  "version": "0.1.0",
+  "description": "Advanced CLI tool and debugger for NATS server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "bin": {
+    "nats-cli": "./index.js",
+    "nats": "./index.js",
+    "n": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonioaguilar/nats-cli.git"
+  },
+  "keywords": [
+    "nats-cli",
+    "nats",
+    "cli",
+    "pub",
+    "sub"
+  ],
+  "author": "Antonio Aguilar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antonioaguilar/nats-cli/issues"
+  },
+  "homepage": "https://github.com/antonioaguilar/nats-cli#readme",
+  "dependencies": {
+    "nats": "^1.3.0"
+  }
+}
