@@ -23,7 +23,7 @@
     "sub"
   ],
   "author": "Antonio Aguilar",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/antonioaguilar/nats-cli/issues"
   },
