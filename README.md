@@ -26,6 +26,11 @@ The format of the `.natsrc` file is JSON.
     },
     "http": {
       "url": "https://.../"
+    },
+    "redis": {
+      "host": "192.168.89.203",
+      "username": "joe",
+      "password": "doe"
     }
   }
 }
@@ -82,7 +87,7 @@ $ n p event.account image.png # automatically checks if file is text, json or bi
 ### Protocol convertion
 
 ```bash
-# publish selected kafka topic data to NATS, only supports kafka JSON data
+# publish selected kafka topic data to NATS, only supports kafka JSON data, support bulk streams
 $ nats relay --subject=event.account --protocol=kafka --kafka-topic="user.accounts" --kafka-stream-throtle=5000
 
 # publish websocket messages to NATS, only supports websocket JSON data
@@ -93,5 +98,28 @@ $ nats relay --subject=event.account --protocol=http --http-endpoint https://abc
 
 # publish messages from one NATS server to another, only supports JSON data
 $ nats relay --subject=user.products --protocol=nats --remote-nats-subject=user.accounts
+
+# publish redis pub/sub messages to NATS server, only supports JSON data
+$ nats relay --subject=user.products --protocol=redis --redis-topic=accounts*
+
+# listen to a TCP server for protocol data and publish data to NATS, if binary, data is encoded in base64
+$ nats relay --subject=user.products --protocol=tcp --tcp-host=192.168.89.203 --tcp-port=3345 --tcp-protocol-encoding=text|binary
+
 ```
+
+### Experimental
+
+The `nats-cli` has experimental support for querying databases and
+
+```bash
+
+$ nats relay --subject=user.products --database=postgresql --query="SELECT * FROM products LIMIT 1000"
+
+$ nats relay --subject=user.products --database=cassandra --query="SELECT uniq(product) FROM catalog where product='laptop'"
+
+$ nats relay --subject=user.products --database=influxdb --query='SELECT ("water_level" * 2) + 4 from "h2o_feet"'
+
+# support for ElasticSearch is coming
+```
+
 

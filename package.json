@@ -1,5 +1,5 @@
 {
-  "name": "nats-cmd",
+  "name": "nats-cli",
   "version": "0.1.0",
   "description": "Advanced CLI tool and debugger for NATS server",
   "main": "index.js",
