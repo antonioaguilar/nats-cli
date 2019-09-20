@@ -109,7 +109,7 @@ $ nats relay --subject=user.products --protocol=tcp --tcp-host=192.168.89.203 --
 
 ### Experimental
 
-The `nats-cli` has experimental support for querying databases and
+The `nats-cli` has experimental support for querying databases and sending query results as NATS messages
 
 ```bash
 
